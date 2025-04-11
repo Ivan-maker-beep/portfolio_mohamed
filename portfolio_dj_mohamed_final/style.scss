@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+// VARIABLES
+$primary: #00fafa;
+$secondary: #4285f4;
+$accent: #a06aff;
+$bg-dark: #0e0e0e;
+$deck-bg: #111;
+$text-color: #fff;
+$background-gradient: linear-gradient(-45deg, #00f2ff, $bg-dark, $accent, $bg-dark);
+
+// RESET
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: #000;
+  color: $text-color;
+  overflow-x: hidden;
+  position: relative;
+}
+
+// FOND ANIMÉ
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $background-gradient;
+  background-size: 600% 600%;
+  animation: animateBG 20s ease infinite;
+  z-index: -1;
+  opacity: 0.3;
+  filter: blur(8px) brightness(1.2);
+}
+
+@keyframes animateBG {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// PLATINE LAYOUT
+.platine {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1600px;
+  margin: auto;
+  padding: 40px;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+// DECKS
+.deck {
+  background: $deck-bg;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 24%;
+  
+  &.center {
+    flex: 1;
+  }
+}
+
+// JOGWHEELS
+.jogwheel {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(#333, #000);
+  border: 4px solid #666;
+  box-shadow: inset 0 0 20px #444;
+  margin-bottom: 20px;
+}
+
+// PADS
+.pads {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  gap: 10px;
+  margin-top: 20px;
+  
+  button {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background: $deck-bg;
+    border: 2px solid #ff0055;
+    box-shadow: inset 0 0 6px #ff0055;
+    transition: background 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    
+    &:active {
+      background: #ff0055;
+      box-shadow: 0 0 10px #ff0055;
+    }
+  }
+}
+
+// SCREEN (Zone d'affichage du nom et de la description)
+.screen {
+  background: $deck-bg;
+  padding: 20px;
+  border: 2px solid $primary;
+  box-shadow: inset 0 0 20px $primary;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  text-align: center;
+  
+  h1 {
+    color: $primary;
+    font-size: 2rem;
+  }
+  
+  p {
+    color: $accent;
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+}
+
+// FADERS (pour les compétences)
+.faders {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  
+  .fader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    
+    label {
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+    
+    input[type="range"] {
+      appearance: none;
+      width: 100px;
+      height: 8px;
+      background: $primary;
+      border-radius: 6px;
+      box-shadow: 0 0 5px $primary;
+      cursor: pointer;
+      transform: rotate(-90deg);
+      
+      &::-webkit-slider-thumb {
+        appearance: none;
+        width: 14px;
+        height: 14px;
+        background: $secondary;
+        border-radius: 50%;
+        box-shadow: 0 0 4px $secondary;
+        cursor: pointer;
+      }
+      
+      &::-moz-range-thumb {
+        width: 14px;
+        height: 14px;
+        background: $secondary;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// FX BUTTONS
+.fx {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  
+  div {
+    width: 25px;
+    height: 25px;
+    background: $accent;
+    border-radius: 50%;
+    box-shadow: 0 0 8px $accent;
+    cursor: pointer;
+  }
+}
+
+// CROSSFADER (horizontal)
+.crossfader {
+  input[type="range"] {
+    width: 300px;
+    height: 6px;
+    background: $primary;
+    border-radius: 5px;
+    appearance: none;
+    cursor: pointer;
+    
+    &::-webkit-slider-thumb {
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      background: $secondary;
+      border-radius: 50%;
+      box-shadow: 0 0 4px $secondary;
+    }
+    
+    &::-moz-range-thumb {
+      width: 14px;
+      height: 14px;
+      background: $secondary;
+      border-radius: 50%;
+      border: none;
+    }
+  }
+}
+
+// LOGOS SOCIAUX
+.logos {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  
+  img {
+    width: 28px;
+    height: 28px;
+    opacity: 0.9;
+    transition: transform 0.3s ease, opacity 0.3s;
+    
+    &:hover {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+  }
+}

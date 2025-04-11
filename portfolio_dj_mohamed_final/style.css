@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+  position: relative; }
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(-45deg, #00f2ff, #0e0e0e, #a06aff, #0e0e0e);
+  background-size: 600% 600%;
+  animation: animateBG 20s ease infinite;
+  z-index: -1;
+  opacity: 0.3;
+  filter: blur(8px) brightness(1.2); }
+
+@keyframes animateBG {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+.platine {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1600px;
+  margin: auto;
+  padding: 40px;
+  gap: 40px;
+  position: relative;
+  z-index: 1; }
+
+.deck {
+  background: #111;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 24%; }
+  .deck.center {
+    flex: 1; }
+
+.jogwheel {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(#333, #000);
+  border: 4px solid #666;
+  box-shadow: inset 0 0 20px #444;
+  margin-bottom: 20px; }
+
+.pads {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  gap: 10px;
+  margin-top: 20px; }
+  .pads button {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background: #111;
+    border: 2px solid #ff0055;
+    box-shadow: inset 0 0 6px #ff0055;
+    transition: background 0.2s, box-shadow 0.2s;
+    cursor: pointer; }
+    .pads button:active {
+      background: #ff0055;
+      box-shadow: 0 0 10px #ff0055; }
+
+.screen {
+  background: #111;
+  padding: 20px;
+  border: 2px solid #00fafa;
+  box-shadow: inset 0 0 20px #00fafa;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  text-align: center; }
+  .screen h1 {
+    color: #00fafa;
+    font-size: 2rem; }
+  .screen p {
+    color: #a06aff;
+    margin-top: 10px;
+    font-size: 1rem; }
+
+.faders {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px; }
+  .faders .fader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; }
+    .faders .fader label {
+      font-size: 0.8rem;
+      color: #ccc; }
+    .faders .fader input[type="range"] {
+      appearance: none;
+      width: 100px;
+      height: 8px;
+      background: #00fafa;
+      border-radius: 6px;
+      box-shadow: 0 0 5px #00fafa;
+      cursor: pointer;
+      transform: rotate(-90deg); }
+      .faders .fader input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        width: 14px;
+        height: 14px;
+        background: #4285f4;
+        border-radius: 50%;
+        box-shadow: 0 0 4px #4285f4;
+        cursor: pointer; }
+      .faders .fader input[type="range"]::-moz-range-thumb {
+        width: 14px;
+        height: 14px;
+        background: #4285f4;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer; }
+
+.fx {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px; }
+  .fx div {
+    width: 25px;
+    height: 25px;
+    background: #a06aff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #a06aff;
+    cursor: pointer; }
+
+.crossfader input[type="range"] {
+  width: 300px;
+  height: 6px;
+  background: #00fafa;
+  border-radius: 5px;
+  appearance: none;
+  cursor: pointer; }
+  .crossfader input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #4285f4;
+    border-radius: 50%;
+    box-shadow: 0 0 4px #4285f4; }
+  .crossfader input[type="range"]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: #4285f4;
+    border-radius: 50%;
+    border: none; }
+
+.logos {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 25px; }
+  .logos img {
+    width: 28px;
+    height: 28px;
+    opacity: 0.9;
+    transition: transform 0.3s ease, opacity 0.3s; }
+    .logos img:hover {
+      transform: scale(1.2);
+      opacity: 1; }
+
+/*# sourceMappingURL=style.css.map */
